@@ -1,0 +1,431 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --heading-font: "Roboto Condensed";
+  --content-font: "Roboto Mono";
+  --mobile-width: 90vw;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  letter-spacing: 4px;
+}
+
+p,
+a {
+  font-family: var(--content-font);
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-block-size: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-inline-size: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*Header Section*/
+header {
+  inline-size: 97vw;
+}
+
+nav {
+  padding: 25px 0 15px;
+}
+
+nav > a {
+  margin-inline-start: 40px;
+}
+
+nav,
+#contact-heading {
+  margin-inline-start: auto;
+}
+/************************/
+
+/*Contact Section*/
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1 1;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#contact {
+  inline-size: 80vw;
+  margin: 1rem auto;
+}
+h2,
+h3,
+h4 {
+  font-family: var(--heading-font);
+}
+#contact-heading {
+  cursor: default;
+  font-size: 1.25rem;
+}
+
+/***********************/
+
+/*Intro Section*/
+#intro,
+#about,
+#projects,
+#skills,
+#internship {
+  text-align: center;
+  margin-block: 2rem;
+}
+#intro-heading {
+  text-transform: uppercase;
+  letter-spacing: 7px;
+}
+#name {
+  font-size: 0.75rem;
+}
+#sub-name {
+  font-size: 1.19rem;
+}
+/***********************/
+
+/*About Section*/
+.introduction {
+  inline-size: var(--mobile-width);
+  margin: 0.5rem auto;
+  text-align: justify;
+}
+/***********************/
+
+/*Projects Section*/
+.project-container {
+  flex-direction: column;
+}
+.project-card {
+  inline-size: auto;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px #919191 solid;
+  background: #303030;
+  margin-block: 1rem;
+  padding-block: 0.5rem;
+}
+.project-card p {
+  font-size: 0.81rem;
+}
+.icon-container {
+  max-inline-size: 4rem;
+  margin: 0 auto;
+  align-items: baseline;
+}
+.colored-circle {
+  border-radius: 0.525rem;
+  height: 12px;
+  inline-size: 0.8rem;
+  background-color: #00e6e4;
+}
+/***********************/
+
+/*Skills Section*/
+#skills {
+  align-items: baseline;
+}
+.skill-container {
+  display: grid;
+  font-family: var(--content-font);
+  font-size: 14px;
+  inline-size: var(--mobile-width);
+  margin: 0 auto;
+  text-align: initial;
+  gap: 1rem 0;
+}
+.sub-skills-container,
+.sub-container {
+  display: inherit;
+  gap: 0.8rem 0;
+}
+.sub-container {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.progress-bar {
+  grid-column: 2/5;
+  position: relative;
+  padding: 0.2rem;
+  margin-block-start: 15px;
+  border: 0.0625rem solid #0d96e0;
+  border-radius: 20px;
+}
+.progress-bar div {
+  inline-size: 0;
+  block-size: 9px;
+  border-radius: 10px;
+  background-color: #0d96e0;
+}
+.skill-name {
+  grid-row: 2;
+  align-self: end;
+}
+.proficiency-name {
+  grid-column: 2;
+}
+/***********************/
+
+/*Internship section*/
+.circle-orange {
+  background-color: #ffa500;
+}
+.circle-yellow {
+  background-color: #ffff00;
+}
+.internship-icon-container {
+  inline-size: 15rem;
+  margin: 0 auto;
+}
+
+/*Animate bars*/
+.intro-container.active {
+  animation: fade-left 2s forwards;
+}
+.react-bar.active {
+  animation: react-bar-fill 2s forwards;
+}
+.html-bar.active {
+  animation: html-bar-fill 2s forwards;
+}
+.css-bar.active {
+  animation: css-bar-fill 2s forwards;
+}
+.project-container.active {
+  animation: fade-right 2s forwards;
+}
+
+@keyframes fade-left {
+  0% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes react-bar-fill {
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes html-bar-fill {
+  100% {
+    width: 65%;
+  }
+}
+
+@keyframes css-bar-fill {
+  100% {
+    width: 65%;
+  }
+}
+
+/*****************************/
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+  :root {
+    --mobile-width: 80vw;
+  }
+  #contact {
+    inline-size: 40vw;
+  }
+  .internship-card {
+    inline-size: 82vw;
+  }
+  .project-card {
+    inline-size: 80vw;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1920px) {
+  #about {
+    text-align: initial;
+  }
+  .introduction {
+    inline-size: 40vw;
+  }
+  .title,
+  .introduction,
+  #about,
+  #skills,
+  #internship,
+  .internship-card {
+    margin-inline: 1rem auto;
+  }
+  #contact {
+    max-inline-size: 20rem;
+    margin-inline: auto 0;
+  }
+  .project-container,
+  #projects,
+  #skills,
+  #internship {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #projects {
+    inline-size: 95vw;
+    margin-left: 1rem;
+  }
+  .project-card {
+    inline-size: 31vw;
+    padding: 1rem;
+    margin-left: 4rem;
+  }
+  .project-card > .introduction {
+    margin-inline: 0;
+    inline-size: auto;
+  }
+  .skill-container {
+    grid-template-columns: repeat(2, 1fr);
+    inline-size: 80vw;
+    gap: 1.5rem 3rem;
+  }
+  #internship {
+    inline-size: 60vw;
+  }
+  .internship-card {
+    inline-size: 80vw;
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (width: 1024px) {
+  .skill-container {
+    inline-size: 75vw;
+  }
+}
+
+@media screen and (width: 1440px) {
+  .skill-container {
+    inline-size: 80vw;
+  }
+  .project-card {
+    inline-size: 34vw;
+    margin-left: 5rem;
+  }
+  .internship-card {
+    inline-size: 70vw;
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (width: 1600px) {
+  .project-card {
+    margin: 1rem;
+  }
+  .skill-container {
+    inline-size: 80vw;
+  }
+  .internship-card {
+    margin-left: 3rem;
+  }
+}
+
+@media screen and (width: 1920px) {
+  .skill-container {
+    inline-size: 84vw;
+    margin-right: auto;
+  }
+  .project-card {
+    margin-left: 6rem;
+  }
+  .internship-card {
+    margin-left: 3rem;
+  }
+}
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+/* @media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+} */
