@@ -65,8 +65,11 @@ a:not([class]) {
   color: white;
   text-decoration: none;
 }
-a:hover {
+#card-title {
   text-decoration: underline;
+}
+a:hover::after {
+  content: "Click on this to visit website";
 }
 
 /* Make images easier to work with */
@@ -84,6 +87,9 @@ select {
   font: inherit;
 }
 
+.title {
+  margin-bottom: 1.2rem;
+}
 /*Header Section*/
 header {
   inline-size: 97vw;
@@ -128,13 +134,20 @@ h4 {
 /***********************/
 
 /*Intro Section*/
-#intro,
-#about,
+#intro {
+  text-align: center;
+  margin-block: 2rem;
+}
+
+#about {
+  margin-block: 4rem;
+  text-align: center;
+}
 #projects,
 #skills,
 #internship {
   text-align: center;
-  margin-block: 2rem;
+  margin-block: 6rem;
 }
 #intro-heading {
   text-transform: uppercase;
@@ -153,6 +166,20 @@ h4 {
   inline-size: var(--mobile-width);
   margin: 0.5rem auto;
   text-align: justify;
+  line-height: 2.3rem;
+}
+.intro-container {
+  display: flex;
+  flex-direction: column;
+}
+.intro-container > div {
+  order: 2;
+}
+#profile-image {
+  width: 40%;
+  margin-block: 0 2rem;
+  margin-inline: auto;
+  order: 1;
 }
 /***********************/
 
@@ -237,48 +264,24 @@ h4 {
 .circle-yellow {
   background-color: #ffff00;
 }
+.internship-card {
+  inline-size: 92vw;
+}
 .internship-icon-container {
   inline-size: 15rem;
   margin: 0 auto;
 }
 
 /*Animate bars*/
-.intro-container.active {
-  animation: fade-left 2s forwards;
-}
+
 .react-bar.active {
-  animation: react-bar-fill 2s forwards;
+  animation: react-bar-fill 2s forwards 1s;
 }
 .html-bar.active {
-  animation: html-bar-fill 2s forwards;
+  animation: html-bar-fill 2s forwards 1s;
 }
 .css-bar.active {
-  animation: css-bar-fill 2s forwards;
-}
-.project-container.active {
-  animation: fade-right 2s forwards;
-}
-
-@keyframes fade-left {
-  0% {
-    transform: translateX(-150px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fade-right {
-  0% {
-    transform: translateX(150px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  animation: css-bar-fill 2s forwards 1s;
 }
 
 @keyframes react-bar-fill {
@@ -308,11 +311,11 @@ h4 {
   #contact {
     inline-size: 40vw;
   }
-  .internship-card {
+  .project-card {
     inline-size: 82vw;
   }
-  .project-card {
-    inline-size: 80vw;
+  #profile-image {
+    width: 25%;
   }
 }
 
@@ -332,7 +335,7 @@ h4 {
     margin-inline: 1rem auto;
   }
   #contact {
-    max-inline-size: 20rem;
+    max-inline-size: 22rem;
     margin-inline: auto 0;
   }
   .project-container,
@@ -348,9 +351,9 @@ h4 {
     margin-left: 1rem;
   }
   .project-card {
-    inline-size: 31vw;
-    padding: 1rem;
-    margin-left: 4rem;
+    inline-size: 34vw;
+    padding: 3rem;
+    margin-left: 3rem;
   }
   .project-card > .introduction {
     margin-inline: 0;
@@ -365,14 +368,30 @@ h4 {
     inline-size: 60vw;
   }
   .internship-card {
-    inline-size: 80vw;
+    inline-size: 50vw;
     margin-left: 1rem;
+  }
+  .intro-container {
+    flex-direction: row;
+  }
+  #profile-image {
+    max-width: 20%;
+    order: 2;
   }
 }
 
 @media screen and (width: 1024px) {
   .skill-container {
     inline-size: 75vw;
+  }
+  .project-card {
+    inline-size: 21.5rem;
+    padding: 2.5rem;
+    margin-left: 3.5rem;
+  }
+  .internship-card {
+    inline-size: 50vw;
+    margin-left: 1rem;
   }
 }
 
@@ -381,24 +400,31 @@ h4 {
     inline-size: 80vw;
   }
   .project-card {
-    inline-size: 34vw;
+    inline-size: 36vw;
     margin-left: 5rem;
+    padding: 1rem;
   }
   .internship-card {
-    inline-size: 70vw;
+    inline-size: 50vw;
     margin-left: 2rem;
   }
 }
 
 @media screen and (width: 1600px) {
+  .introduction {
+    inline-size: 38vw;
+  }
   .project-card {
     margin: 1rem;
+
+    padding: 1rem;
   }
   .skill-container {
     inline-size: 80vw;
   }
   .internship-card {
-    margin-left: 3rem;
+    inline-size: 40vw;
+    margin-right: 6.5rem;
   }
 }
 
@@ -414,18 +440,3 @@ h4 {
     margin-left: 3rem;
   }
 }
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-/* @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-} */
