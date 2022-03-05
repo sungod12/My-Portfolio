@@ -125,6 +125,16 @@ h4 {
   font-size: 1.25rem;
 }
 
+#linkedin-icon,
+#gmail-icon,
+#github-icon {
+  filter: brightness(0.85) invert(0);
+}
+#linkedin-icon:hover,
+#gmail-icon:hover,
+#github-icon:hover {
+  filter: brightness(1) invert(0);
+}
 /***********************/
 
 /*Intro Section*/
@@ -153,6 +163,19 @@ h4 {
 #sub-name {
   font-size: 1.19rem;
 }
+#hand-emoji {
+  display: inline-block;
+  animation: handmove 2s ease-in-out infinite;
+}
+
+@keyframes handmove {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-35deg);
+  }
+}
 /***********************/
 
 /*About Section*/
@@ -160,7 +183,7 @@ h4 {
   inline-size: var(--mobile-width);
   margin: 0.5rem auto;
   text-align: justify;
-  line-height: 2.3rem;
+  line-height: 1.6rem;
 }
 .intro-container {
   display: flex;
